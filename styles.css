@@ -1,0 +1,185 @@
+:root {
+  color-scheme: light;
+  --bg: #f5f7fb;
+  --card: #ffffff;
+  --text: #16213a;
+  --accent: #3264ff;
+  --accent-soft: #9eb6ff;
+  --ok: #35a35d;
+  --line: #dce3f0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+header {
+  padding: 1.5rem;
+  background: linear-gradient(120deg, #2a50d0, #3f8bff);
+  color: white;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+.subtitle {
+  margin-top: 0.5rem;
+  opacity: 0.95;
+}
+
+main {
+  max-width: 1100px;
+  margin: 1rem auto 3rem;
+  padding: 0 1rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.card {
+  background: var(--card);
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.control-row {
+  margin-top: 0.75rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+button {
+  border: none;
+  border-radius: 8px;
+  padding: 0.6rem 1rem;
+  background: var(--accent);
+  color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  filter: brightness(0.95);
+}
+
+.hint {
+  margin-top: 0.65rem;
+  font-size: 0.9rem;
+  color: #44516f;
+}
+
+#status {
+  min-height: 1.3rem;
+  margin-top: 0.5rem;
+  font-size: 0.95rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 0.8rem;
+}
+
+th,
+td {
+  text-align: left;
+  border-bottom: 1px solid var(--line);
+  padding: 0.55rem 0.45rem;
+}
+
+.subject-card + .subject-card {
+  margin-top: 1rem;
+}
+
+.subject-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.tk-input {
+  width: 90px;
+}
+
+.metrics {
+  margin-top: 0.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-size: 0.95rem;
+}
+
+.progress-wrap {
+  position: relative;
+  margin-top: 0.8rem;
+  height: 20px;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.progress-base,
+.progress-current,
+.progress-projected {
+  position: absolute;
+  inset: 0;
+}
+
+.progress-base {
+  background: #eaf0ff;
+}
+
+.progress-current {
+  background: linear-gradient(90deg, var(--accent), #5f89ff);
+  width: 0;
+}
+
+.progress-projected {
+  width: 0;
+  background: repeating-linear-gradient(
+    135deg,
+    rgba(53, 163, 93, 0.2),
+    rgba(53, 163, 93, 0.2) 8px,
+    rgba(53, 163, 93, 0.45) 8px,
+    rgba(53, 163, 93, 0.45) 16px
+  );
+  clip-path: inset(0 0 0 0);
+}
+
+.threshold {
+  position: absolute;
+  top: -1.1rem;
+  font-size: 0.72rem;
+  color: #4f5e80;
+  transform: translateX(-50%);
+}
+
+.t40 {
+  left: 40%;
+}
+
+.t60 {
+  left: 60%;
+}
+
+.t80 {
+  left: 80%;
+}
+
+.totals {
+  margin-top: 0.65rem;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}

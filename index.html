@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>БРС дашборд</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Дашборд расписания и БРС</h1>
+      <p class="subtitle">Текущее расписание, прогноз баллов и контроль порогов 40 / 60 / 80.</p>
+    </header>
+
+    <main>
+      <section class="controls card">
+        <h2>Источник данных</h2>
+        <div class="control-row">
+          <button id="loadDemoBtn">Загрузить демо</button>
+          <button id="loadRemoteBtn">Попробовать загрузить attendance-app.mirea.ru</button>
+        </div>
+        <p class="hint">
+          Для удалённой загрузки потребуется активная сессия и доступный API. Если не получилось, используйте демо и ручной ввод ТК.
+        </p>
+        <p id="status" role="status"></p>
+      </section>
+
+      <section class="summary card">
+        <h2>Итог по всем дисциплинам</h2>
+        <div class="totals">
+          <div>
+            <strong>Текущие баллы:</strong>
+            <span id="totalCurrent">0</span>
+          </div>
+          <div>
+            <strong>Прогноз на сегодня:</strong>
+            <span id="totalProjected">0</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Расписание на сегодня</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Время</th>
+              <th>Дисциплина</th>
+              <th>Тип</th>
+              <th>Баллы</th>
+              <th>Пойду</th>
+            </tr>
+          </thead>
+          <tbody id="scheduleBody"></tbody>
+        </table>
+      </section>
+
+      <section class="card">
+        <h2>Прогресс по дисциплинам</h2>
+        <div id="subjectsContainer"></div>
+      </section>
+    </main>
+
+    <template id="subjectTemplate">
+      <article class="subject-card">
+        <div class="subject-header">
+          <h3 class="subject-name"></h3>
+          <label>
+            ТК:
+            <input class="tk-input" type="number" min="0" max="100" step="0.5" />
+          </label>
+        </div>
+        <div class="metrics">
+          <span>Текущие: <strong class="current-points"></strong></span>
+          <span>Прогноз: <strong class="projected-points"></strong></span>
+          <span>Макс: <strong class="max-points"></strong></span>
+        </div>
+        <div class="progress-wrap">
+          <div class="threshold t40">40</div>
+          <div class="threshold t60">60</div>
+          <div class="threshold t80">80</div>
+          <div class="progress-base"></div>
+          <div class="progress-current"></div>
+          <div class="progress-projected"></div>
+        </div>
+      </article>
+    </template>
+
+    <script src="app.js"></script>
+  </body>
+</html>
